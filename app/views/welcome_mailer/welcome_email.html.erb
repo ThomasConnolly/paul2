@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+</head>
+  <body>
+    <h3>Hello <%= @user.first_name.titleize %>, </h3>
+    <p>
+      This is an introduction to the new Saint Paul's website! </p>
+    <p>
+      Until now, our website has been useful for those looking for a church, but not so useful for our own parishioners. we're hoping to change the second part of that by inviting you to participate in this "social media."</p>
+      
+         <%= render 'vestry1' if @user.vestry? %>
+       
+    <p> 
+      "Family Ties" is a place for you to keep in touch and share news and information. (Kind of like Facebook, without the politics and rancor) If you need a ride to church, or want to wish someone a happy birthday or add someone to the parish prayer list, Family Ties will be the place to do it.</p>
+     
+    <p>
+      <strong>How to get in</strong> </p>
+    <p>
+      <%= link_to "Clicking here", "http://www.saintpaulsnaples.org" %> will take you to the home page. From there, click the "sign in" at the left in the blue navigation box. </p>
+    <p>
+      Once logged in you can start working on strengthening "family ties" with fellow parishioners or update your picture and profile. </p> 
+
+    <br>
+    <p class='align-right'>&mdash;Tom Connolly, webmaster</p><br>
+    <p>
+    P.S. If you're having any problems send me an email at <strong>tom.connolly@comcast.net</strong> or call me at 285-9224.</p>
+     
+  </body>
+</html>

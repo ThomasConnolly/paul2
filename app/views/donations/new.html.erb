@@ -1,0 +1,11 @@
+<h1>Your donation to St. Paul's </h1>
+
+<div class="col-md-4 offset-md-4">
+
+    <% if user_signed_in? %>
+      <%= render 'form' %>
+    <% else %>
+      <p><strong> Please take a moment</strong> and register using your name, email and a password. If you have already registered, please sign in <%= link_to "here.", new_user_session_path %> (That link will allow you to reset your password if you have forgotten it.) <br> If you haven't registered, use <%= link_to "this link.", new_user_registration_path %> </p>
+      <p>Thank you!</p>
+    <% end %>
+</div>

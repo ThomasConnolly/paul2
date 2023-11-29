@@ -1,0 +1,24 @@
+<h1>Sermons from St. Paul's pulpit </h1>
+<% if user_signed_in? && current_user.roles.include?("admin") %>
+  <%= link_to "Add a sermon" , new_sermon_path, class: "btn btn-primary" %>
+<% end %>
+
+<table class="table table-striped">
+  <tbody>
+  <% @sermons.each do |sermon| %>
+    <tr><td>
+      <%= sermon.delivered_on.strftime("%b %d, %Y") %>
+    </td>
+    <td>
+      <%= sermon.homilist.name %>
+    </td>
+    <td>
+      <%= link_to sermon.title, sermon %>
+      <% if user_signed_in? && current_user.roles.include?("admin") %>
+        <%= link_to "Delete", sermon, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }  %>
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

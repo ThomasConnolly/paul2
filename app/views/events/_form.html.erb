@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col col-sm-6 col-sm-offset-3">
+
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.text_field :title %>
+        <%= f.text_field :price, label: "Price in pennies per ticket. $21.00 would be input as 2100" %>
+          <%= f.date_field :date, data: { controller: "datepicker" } %>
+            <%= f.text_field :time, placeholder: "Time of event, eg., 7:30 p.m." %>
+              <%= f.text_field :photo, label: "Add a picture for this event" %>
+                <%= f.submit "Submit"  %>
+                  <% end %>
+
+  </div>
+</div>
+<!-- , data: { behavior: "datepicker" } -->

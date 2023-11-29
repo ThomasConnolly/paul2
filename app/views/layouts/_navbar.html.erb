@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-md navbar-dark my-3" style="background-color: #0d4884;">
+  <div class="container-fluid">
+    <div class="navbar-brand ms-4">
+      <% if current_user %>
+        <%= current_user.username %><br>
+        <span><h6><%= link_to "Log out", destroy_user_session_path, data: { turbo_method:  :delete }, class: "text-white" %>
+        <%= link_to " | Edit account" , edit_user_registration_path, class: "text-white" %>
+        <%= link_to " | Update profile" , edit_profile_path(current_user.profile), class: "text-white" %>
+      <% else %>
+        <%= link_to "Sign in or register" , new_user_session_path, class: "text-white" %>
+            </h6></span>
+      <% end %>
+
+    </div><!--  navbar brand & login -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+          <%= link_to "Home" , root_path, class: "text-white" %>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Worship <span class="caret"> </span> </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "How we worship" , worship_index_path, {class: "dropdown-item" } %><br>
+              <%= link_to "Read sermons" , sermons_path, {class: "dropdown-item" } %><br>
+                <%= link_to "How to pray" , pages_how_to_pray_path, {class: "dropdown-item" } %><br>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Leadership
+            <span class="caret"></span></a>
+
+          <div class="dropdown-menu text-gray-800" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Clergy and staff" , leadership_index_path, {class: "dropdown-item" } %><br>
+              <%= link_to "Vestry" , leadership_index_path, {class: "dropdown-item" } %><br>
+              <%= link_to "Vestry minutes" , vestry_minutes_path, {class: "dropdown-item" } %><br>
+            <% if current_user && current_user.roles.include?("vestry") %>
+              <%= link_to "Vestry Forum" , vnotes_path, {class: "dropdown-item" } %>
+            <% end %> 
+                <%= link_to "Parish profile" ,
+                   ("https://res.cloudinary.com/saintpaulsnaples-org/image/upload/v1522935596/ParishProfile_vs6vjv.pdf.jpg.pdf"),{class: "dropdown-item" } %><br>
+                <% if current_user %>
+                  <%= link_to "Parishioner profiles" , profiles_path, {class:"dropdown-item" }%><br>
+                <% end %>
+                <%= link_to "Our history" , history_path, {class: "dropdown-item" } %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Activities
+            <span class="caret"></span></a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Activities" , activities_index_path, {class: "dropdown-item" } %><br>
+            <%= link_to "Read Pathway newsletter" , pathways_path, {class: "dropdown-item" } %><br>
+            <%= link_to "Opportunities to serve" , opportunities_path, {class: "dropdown-item" } %><br>
+            <%= link_to "Family Ties" , posts_path, {class: "dropdown-item" } %>
+          </div>
+        </li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Markets
+        <span class="caret"></span></a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Farmers' Market" , markets_index_path, {class: "dropdown-item" } %><br>
+          <%= link_to "Gift Shop" , markets_index_path, {class: "dropdown-item" } %><br>
+          <%= link_to "Unique Boutique" , markets_index_path, {class: "dropdown-item" } %>
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

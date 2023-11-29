@@ -1,0 +1,6 @@
+<%= simple_form_with(model: pathway) do |f| %>
+  <%= f.text_field :image %>
+  <%= f.text_field  :link %>
+  <%= f.date_field  :pubdate, placeholder: "use calendar dropdown"%>
+  <%= f.submit "Add a pathway", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,11 @@
+
+<%= simple_form_for (@pray_for) do |f| %>
+
+    <%= f.text_field :first_name, placeholder: "First name only" %>
+    <%= f.text_field :reason, placeholder: "Why are we praying for her/him?" %>
+      <div class="sr-only">
+        <%= f.text_field :honey %>
+      </div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  
+<% end %>

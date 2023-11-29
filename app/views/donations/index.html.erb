@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Donations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Amount</th>
+      <th>Date</th>
+     
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td><%= donation.user.username %></td>
+        <td><%= donation.amount %></td>
+        <td><%= donation.created_at %></td>
+      
+        <td><%= link_to 'Show', donation %></td>
+        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+        <td><%= link_to 'Delete', donation,  data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Donation', new_donation_path %>

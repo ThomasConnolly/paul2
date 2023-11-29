@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@survey) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.text_field :q1 %>
+    <%= f.text_field  :q2 %>
+    <%= f.text_field  :q3 %>
+    <%= f.text_area  :a1 %>
+    <%= f.text_area   :a2 %>
+    <%= f.text_area   :a3 %>
+    <%= f.text_area   :added_comments %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Submit"  %>
+  </div>
+<% end %>

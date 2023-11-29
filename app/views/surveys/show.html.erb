@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Q1:</strong>
+  <%= @survey.q1 %>
+</p>
+
+<p>
+  <strong>Q2:</strong>
+  <%= @survey.q2 %>
+</p>
+
+<p>
+  <strong>Q3:</strong>
+  <%= @survey.q3 %>
+</p>
+
+<p>
+  <strong>A1:</strong>
+  <%= @survey.a1 %>
+</p>
+
+<p>
+  <strong>A2:</strong>
+  <%= @survey.a2 %>
+</p>
+
+<p>
+  <strong>A3:</strong>
+  <%= @survey.a3 %>
+</p>
+
+<p>
+  <strong>Added comments:</strong>
+  <%= @survey.added_comments %>
+</p>
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>

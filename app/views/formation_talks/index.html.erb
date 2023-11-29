@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+  
+  <h1>'Spirituality of Intimacy'</h1><%= render "formationBox"%>
+
+<p>This series is for anyone who wishes to explore the connection between human emotional behavior and the Triune God, whose very essence is intimate relationship. It begins at 9 a.m. Sundays in Trinity Hall, and all are welcome to attend. Each of the sessions will last about 45 minutes.</p>
+
+<p>“The series deals with all sorts of spiritual intimacy which can exist and flourish among family members, friends, acquaintances and, of course, couples. It focuses on how such intimate relationships help us to become more fully human&mdash;more fully ourselves in all our disheveled but glorious humanity&mdash;which is, I believe, what God in Christ wants of us and for us.”</p>
+
+<p><strong>Here are the texts of these talks: </strong></p>
+
+<div class="mt30"></div>
+
+
+<table class="table table-striped">
+  <tbody>
+    <% @formation_talks.each do |talk| %>
+      <tr> 
+        <td><h4><%= link_to talk.title, talk %> </h4>
+          
+    <% end %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+<div class="mt-5"></div>
+  </div>
+</div>
+
+

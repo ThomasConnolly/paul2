@@ -1,0 +1,21 @@
+<h1>Listing books by title</h1>
+<div class="mt30"></div>
+<%= link_to "see books by author" , books_author_path %>
+  <div class="mt30"></div>
+
+  <% @books.each do |b| %>
+    <%= b.title %>, <%= b.author %>
+    <%= b.dewey %>
+    <%= b.cutter %>
+    <%= b.isbn %>
+    <%= b.url %>
+    <%= image_tag("https://covers.openlibrary.org/b/isbn/#{b.isbn}-S.jpg", width: "100" ) %>
+
+    <%= link_to 'show' , book_path(b) %><br>
+    <% if current_user && current_user.roles.include?("admin") %>
+      <%= link_to ' | edit' , edit_book_path(b) %>
+      <%= link_to ' | delete' , b, data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %>
+      <br>
+    <% end %>
+  <% end %>
+  <div class="mt-3"></div>

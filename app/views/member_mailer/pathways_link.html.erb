@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Email</title>
+<style type="text/css">
+	body {
+		margin: 0;
+		background-color: #cccccc;
+	}
+	table {
+		border-spacing: 0;
+	}
+	td {
+		padding: 0;
+	}
+	img {
+		border: 0;
+	}
+  .wrapper {
+    width: 100%;
+    table-layout: fixed;
+    background-color: #cccccc;
+    padding-bottom: 40px;
+  }
+
+	@media screen and (max-width: 600px) { 
+
+  }
+  .main {
+    background-color: #ffffff;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    border-spacing: 0;
+    font-family: sans-serif;
+    color: #4a4a4a;
+  }
+</style>
+</head>
+<body>
+
+<center class="wrapper">
+<table class="main" width="100%">
+<!-- jpg of pathway -->
+  <tr>
+    <td class="img">
+      <%= link_to cl_image_tag("lentSm2021_ska6qh.jpg", width: "550"), @url %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%">
+        <tr>
+          <td style="text-align: center; padding: 15px">
+            <p>If the link sent to you did not allow you to view the new <em>Pathways,</em> please use this one. Just click on the image above.
+              </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+     

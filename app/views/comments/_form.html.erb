@@ -1,0 +1,11 @@
+<%if !current_user %>
+  <h2>Users must be signed in in order to post comments </h2>
+<% end %>
+
+<%= form_with(model: [commentable, Comment.new(commentable: commentable)], local: true) do |f| %>
+  <div class="field mb-3">
+    <%= f.text_area :body, size: "60x6" %></br>
+  
+  <%= f.submit "Submit", class: "btn btn-success" %>
+  </div>
+<% end %>

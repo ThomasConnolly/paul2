@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div id="praying">
+<p>
+  <strong>First name:</strong>
+  <%= @pray_for.first_name %>. 
+  <strong>Reason:</strong>
+  <%= @pray_for.reason if reason?%>
+</p>
+</div>
+<%= link_to 'Edit', edit_pray_for_path(@pray_for) %> |
+<%= link_to 'Back', pray_fors_path %>

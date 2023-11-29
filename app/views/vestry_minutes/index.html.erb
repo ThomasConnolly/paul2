@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="mt30"></div>
+      <% if user_signed_in? && current_user.roles.include?("admin") %>
+        <p><b>
+            <%= link_to 'New entry' , new_vestry_minute_path %>
+          </b></p>
+        <% end %>
+          <div class="mt30"></div>
+          <h1>Vestry Minutes</h1>
+          <% @vestry_minutes.each do |vestry_minute| %>
+            <p><strong>Meeting date:
+                <%= vestry_minute.date.strftime("%B %d, %Y") %> &nbsp;
+              </strong>
+              <small>
+                <%= link_to 'Show' , vestry_minute %>
+              </small>&nbsp;
+              <% if user_signed_in? && current_user.roles.include?("admin") %>
+                <%= link_to 'Edit' , edit_vestry_minute_path(vestry_minute) %> |
+                  <%= link_to 'Destroy' , vestry_minute, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }
+                    %>
+            </p>
+            <% end %>
+              <% end %>
+    </div>
+  </div>
+</div>

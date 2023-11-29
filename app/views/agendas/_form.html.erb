@@ -1,0 +1,28 @@
+<%= form_with model: @agenda do |f| %>
+  <div class="form-group mb-3">
+  <h2>Meeting date</h2>
+    <div data-controller="datepicker"
+    data-datepicker-format-value="%B. %-d, %Y">
+      <input data-datepicker-target="input" type="text" name="foo"/>
+      <button data-datepicker-target="toggle">...icon...</button>
+    </div>
+  </div>
+  <div data-controller="agenda" data-agenda-target="fields" class="mb-3">
+    <%= f.fields_for :agenda_items do |item| %>
+  <h2>Agenda Items</h2>
+    <%= item.hidden_field :_destroy %>
+    <%= item.text_field :title, placeholder: "Line item" %>
+    <%= item.label "Read-ahead details" %>
+  </div>
+  <div class="mb-3">
+  <%= item.rich_text_area :details, placeholder: "Read-ahead details for this line item" %>
+  <button type="button" data-action="agenda#remove_item">Remove this line item
+  </button>
+  <% end %>
+  </div>
+  <%= link_to "Add line item", "#", data: { action: "agenda#add_item" } %>    
+  <div> 
+    <%= f.submit "Save items", class: "btn btn-success" %>  
+  </div>
+<% end %>
+</div>

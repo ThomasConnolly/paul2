@@ -1,0 +1,13 @@
+<p style="color: green">
+  <%= notice %>
+</p>
+
+<%= render @story_assignment %>
+
+  <div>
+    <%= link_to "Edit this story assignment" , edit_story_assignment_path(@story_assignment) %> |
+      <%= link_to "Back to story assignments" , story_assignments_path %>
+
+        <%= link_to "Destroy this story assignment" , story_assignments_path(@story_assignment), data { turbo_method:
+          :delete, turbo_confirm: "Are you sure?" %>
+  </div>

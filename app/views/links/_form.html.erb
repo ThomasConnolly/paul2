@@ -1,0 +1,9 @@
+
+<%= simple_form_for @link do |f| %>
+  <%= f.text_field :event %>
+  <%= f.text_field :time %>
+  <%= f.date_field :date, data: { controller: "datepicker" } %><br>
+  <%= f.text_field :url %><br>
+
+  <%=  f.submit "Submit",  class: "btn btn-success"  %>
+<% end %>

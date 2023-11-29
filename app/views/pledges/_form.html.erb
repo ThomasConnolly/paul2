@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-3">
+    <%= simple_form_with(model: @pledge) do |f| %>
+    <%= f.number_field :dollars, label: "Dollar amount", placeholder: '(Whole dollars only)'%>
+    <p>
+      Frequency<br />
+    <%= f.radio_button :plan, "weekly" %> &nbsp; <%= f.radio_button :plan, "monthly" %> &nbsp;
+    <%= f.radio_button :plan, "quarterly" %> </p>
+    <%= f.submit "Submit"  "Confirm" , class: "btn btn-lg btn-success mb-2" %>
+  <% end %>
+  </div>
+</div>

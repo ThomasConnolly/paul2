@@ -1,0 +1,15 @@
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag(@sermon.homilist.photo, height: '183') %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body text-center">
+        <h5 class="card-title">Sunday Sermon</h5>
+        <p class="card-text"> <%= @sermon.homilist.name %></p>
+        <p> <%= @sermon.homilist.title %></p>
+        <p class="card-text"><small class="text-muted"> <%= @sermon.delivered_on.strftime("%b. %-d, %Y") %></small></p>
+      </div>
+    </div>
+  </div>
+</div>

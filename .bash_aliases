@@ -1,1 +1,0 @@
-bd = 'bin/dev.sh'

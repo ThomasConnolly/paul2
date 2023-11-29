@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-8 col-sm-12 main-body">
+    <div>
+      <h1>Welcome to the newsroom</h1>
+      <p><strong>
+          <%= link_to "Got a story idea?" , new_story_idea_path %>
+        </strong></p>
+    </div>
+
+    <div class="mt-3" id="story_ideas">
+      <h2>From the Communicators</h2>
+      <% @story_ideas.each do |story_idea| %>
+        <h3>
+          <%= link_to story_idea.title, story_idea %>
+        </h3>
+        <p>By <%= story_idea.user.username%>
+        </p>
+        <% if story_idea.comments.any? %>
+          <p><small><em>
+                <%= pluralize story_idea.comments.count, "comment" %>
+              </em></small></p>
+          <br>
+          <% end %>
+            <% end %>
+    </div>
+    <!--story_ideas-->
+
+  </div>
+  <!--main-body-->
+
+  <div class="col-md-4 px-4", style="background-color: #e2e2e2;">
+
+    <h3> Resources for communicators </h3>
+    <p>
+      <%= link_to "Episcopal Church Foundation 'Vital Practices'" , ("https://www.ecfvp.org/")%>
+    </p>
+    <p>
+      <%= link_to "How to navigate the Vital Practices website" , ("https://www.youtube.com/watch?v=pr-iob0Bf_k") %>
+        <p>
+          <%= link_to "Diocesan guidebook for using social media" ,
+            ("https://s3.amazonaws.com/dfc_attachments/public/documents/3221891/3-socialmedia_2016_Guidelines_Final.pdf")
+            %>
+        </p>
+
+        <p>
+          <%= link_to "Episcopal communicators website" , ("https://episcopal-communicators.wildapricot.org/") %>
+        </p>
+        <p>
+          <%= link_to "Episcopal Communicators Facebook page" ,
+            ("https://www.facebook.com/groups/episcopalcommunicators/") %>
+            <p>
+              <%= link_to "Acts 8, an Episcopal evangelical resource" , ("https://www.acts8movement.org/") %>
+            </p>
+            <p>
+              <%= link_to "Social Media Campaign for churches" ,
+                ("http://www.ecfvp.org/vestry-papers/article/581/social-media-campaigns") %>
+                <p>
+                  <%= link_to "Tips for internal communications, from our Methodist friends" ,
+                    ("http://www.umcom.org/learn/5-tips-for-internal-church-communications") %>
+                </p>
+                <p>
+                  <%=link_to "Church tech trends, from our Roman Catholic friends" ,
+                    ("https://reachrightstudios.com/church-tech-trends/") %>
+                </p>
+  </div>
+  <!--sidebar-->
+</div>
+<!--row-->

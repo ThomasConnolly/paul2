@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md-8 col-md-offset-2 mt-5">
+      <p id="notice">
+        <%= notice %>
+      </p>
+
+
+
+      <h3 class="mt-3">
+        <%= @story_idea.title %>
+      </h3>
+      <% if @story_idea.url? %>
+        <p>
+          <%= link_to "Here's the link" , @story_idea.url, target: "blank" %>
+        </p>
+        <% end %>
+          <%= @story_idea.body.html_safe %>
+            <div class="comments-user">
+              <p><small>Submitted
+                  <%= time_ago_in_words(@story_idea.created_at) %> ago by
+                    <%= @story_idea.user.username %> |
+                </small>
+                <% if current_user==@story_idea.user %>
+                  <span>
+                    <%= link_to "Edit" , edit_story_idea_path(@story_idea) %> &nbsp;
+
+                      <%= link_to "Destroy" , @story_idea, data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %>
+                  </span>
+                  <% end %>
+              </p>
+
+
+              <h3 class="mt-5">
+                <%= link_to "<< Back to the newsroom" , story_ideas_path %>
+              </h3>
+            </div>
+    </div>
+  </div>

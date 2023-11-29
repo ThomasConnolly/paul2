@@ -1,0 +1,9 @@
+<div class="border-left border-top border-bottom p-4 mb-4">
+
+  <% comments.each do |comment| %>
+  <p>
+  <%= comment.body %><br>
+  <em> By <%= comment.user.username %></em>, <%= comment.created_at.strftime("%b %-d, %Y")%>
+  </p>
+  <% end %>
+</div>

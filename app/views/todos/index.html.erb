@@ -1,0 +1,21 @@
+<h2>To Do List</h2>
+
+<div id="todos">
+  <ol 
+  data-controller="sortable"
+  data-sortable-resource-name-value="todo_item"
+  data-sortable-handle-value=".card">
+
+  <%= TodoList.each do |td| %>
+    <li 
+      class="card"
+      data-sortable-update_url="<% update_position_path(todo_item) %>">
+    </li>
+  <% end %>
+
+    <%= link_to "Show this todo list", todo_list %>
+  </p>
+  <% end %>
+  </div>
+
+  <%= link_to "New todo list", new_todo_list_path %>

@@ -1,0 +1,22 @@
+
+<h1>Agenda for <%= @agenda.meeting_date.strftime("%B %-d, %Y") %> </h1>
+  <% if @agenda.draft? %>
+    <h2>D R A F T</h2>
+  <% end %>
+
+  <div data-controller="sortable" data-sortable-url="<%= sort_ageneda_items_url(@agenda) %>">
+    <ol>
+      <% @agenda.agenda_items.order(:position).each do |item| %>
+        <div data-id="<%= item.id %>">
+          <li>
+          <strong><em></em>  <%= item.title %> </em></strong>
+            <%= item.details.to_trix_html if item.details? %>
+          </li>
+      <% end %>
+<% end %> 
+    </ol>
+  </div>
+
+<%= link_to 'Edit', edit_agenda_path(@agenda) %> | <%= link_to 'Delete', agenda_path(@agenda), data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %><br>
+<%= link_to '<<Back', agendas_path %>
+    

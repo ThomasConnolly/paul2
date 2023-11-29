@@ -1,0 +1,44 @@
+<h1>Stripe Reports:</h1>
+
+
+<div class="container"> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Stripe fee</th>
+        <th>Net</th>
+        <th>Type</th>
+        <th>Memo</th>
+        <th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><% @stripe_reports.each do |sr| %>
+        <td><%= sr.user.username %></td>
+        <td><%= number_to_currency(sr.amount/100.0) %></td>
+        <% if sr.date_paid.present? %>
+          <td><%= sr.date_paid.strftime("%b %-d, %Y") %>
+        <% else %>
+          <td><%= sr.created_at.strftime("%b %-d, %Y") %>  
+        <% end %>  
+        </td>
+        <td><%= number_to_currency(sr.fee/100.0) %></td>
+        <td><%= number_to_currency(sr.net/100.0) %></td>
+        <td><% if sr.pledge_id.nil? %>
+              donation
+            <% else %>
+              <%= sr.pledge.plan %>  
+            <% end %></td>
+        <td><% if sr.donation&.memo.nil? %>
+              - - -
+            <% else %>
+              <%= sr.donation.memo %> 
+            <% end %>   </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>

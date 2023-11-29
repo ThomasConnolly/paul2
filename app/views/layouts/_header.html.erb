@@ -1,0 +1,34 @@
+
+ <div class="row d-none d-md-block">
+    <div class="col-md-12 img-fluid my-5 d-flex justify-content-around">
+      <div>
+        <%= cl_image_tag("street-sign_emrjtx.jpg", :width=>110, :crop=>"scale", alt: "street sign", class: "d-block mx-auto") %>
+      </div> 
+      <div>
+        <%= cl_image_tag("logos/New_StPaul_LogoWeb.jpg", alt: "logo") %>
+          <p class="tiny text-center">
+            3901 Davis Blvd., two blocks east of Airport Road
+          </p>
+      </div>
+      <div>
+        <%= link_to cl_image_tag("googleMap_gdo2n6.jpg", width: "110", alt: "map", class:" d-block mx-auto"), pages_directions_url %>
+      </div>
+    </div>
+  </div> 
+
+  <div class="row d-md-none">
+    <div class="col-sm-12 mx-auto my-2">
+       <%= cl_image_tag("logos/New_StPaul_LogoWeb.jpg", alt: "logo", class: "img-fluid") %>
+          <p class="tiny text-center">
+            3901 Davis Blvd., east of Airport Road
+          </p>
+    </div>
+    <div class="col-sm-12 img-fluid d-flex justify-content-around">
+      <div class="street-sign">
+       <%= cl_image_tag("street-sign_emrjtx.jpg", width: "80", crop:"scale", alt: "street sign", class: "img-fluid") %>
+      </div> 
+      <div class="directions"> 
+         <%= link_to cl_image_tag("googleMap_gdo2n6.jpg", width: "80", alt: "map", class:" d-block mx-auto"), pages_directions_url %>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+
+    <div class="example">
+      <%= simple_form_for @formation_talk, html: { multipart: true } do |f| %>
+        <div class="form-group">
+          <%= f.input :title, class: 'form-control' %>
+            <%= f.date_field :delivered_on, data: { controller: "datepicker" } %>%>
+              <%= f.input :body, as: :ckeditor %>
+                <%= f.submit "Submit"  %>
+                  <% end %>
+        </div>
+    </div>
+
+
+  </div>
+</div>
+<!-- ,  data: { behavior: "datepicker" } -->

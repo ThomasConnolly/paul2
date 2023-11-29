@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 mt-5">
+  <h1> Complete your profile </h1><br>
+    <% if @profile.user.avatar.attached? %>
+      <%= image_tag @profile.user.avatar, width: "60%", class: "image-center" %> 
+    <% else %>
+      <%= link_to "Add profile picture", edit_user_path(current_user) %>
+    <% end %>
+    <% if @profile.user.avatar.attached? %>
+      <%= link_to "Change your profile picture", edit_user_path(current_user) %>
+      <% end %>
+
+  <h3 class="mt30">Everybody has a story...</h3>
+    <p>...And we get to know one another by sharing our story. Look at the questions below and fill out the boxes you want to fill out. You can always come back to edit your profile.</p>
+  
+  <%= simple_form_for(@profile) do |f| %>
+
+    
+    <p><strong>Important locations:</strong> Name the cities or towns that have been important in your life, starting with your birthplace. (Just the name of the places, no narrative yet. We'll use this information to see if you have any geographical connections with other parishioners.)</p>
+      <%= f.text_area :cities, placeholder: "High Point, NC, for example" %>
+
+    <p><strong>Growing up: </strong>Write a little about your early years, before launching your career. Did you play sports in school or were you named homecoming queen? What sort of education do you have:</p>
+      <%= f.text_area :background, size: "90x6" %><br>
+  
+    <p><strong>Building a career: </strong>This is where you tell us about your work life. Multiple careers? Lots of travel? </p>
+      <%= f.text_area :career, size: "90x6" %><br>
+   
+    <p><strong>Family matters: </strong>Tell us about your immediate family first, then any famous or infamous ancestry or offspring. Where are the kids? </p>
+      <%= f.text_area :family, size: "90x6" %><br>
+    
+    <p><strong>Hobbies and other activities: </strong>Lifestyle questions concern your off-the-job pursuits. Are you a sailor, chef or musician? What skills have you acquired over the years? Handy with tools? How many holes-in-one or 300-games?</p>
+      <%= f.text_area :lifestyle, size: "90x6" %><br>
+  
+    <p><strong>Life in the world: </strong>Do you or did you belong to any service organizations or clubs? Tells us about your civic involvement as a volunteer or elected or appointed leader in the secular world. </p>
+     <%= f.text_area :civic, size: "90x6" %><br>
+    
+    <p><strong>The Family of God: </strong>Finally, we come to church. What ministries have you been involved in at St. Paul's or at another church? Are you interested in Christian formation? A Bible study? Do you want to say why you come to St. Paul's?</p> 
+      <%= f.text_area :church, size: "90x6" %><br>
+
+    <%= f.submit "Submit" , class: "btn btn-primary" %>
+  <% end %> 

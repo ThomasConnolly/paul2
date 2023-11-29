@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Story assignments</h1>
+
+<div id="story_assignments">
+  <% @story_assignments.each do |story_assignment| %>
+    <%= render story_assignment %>
+    <p>
+      <%= link_to "Show this story assignment", story_assignment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New story assignment", new_story_assignment_path %>

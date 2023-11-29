@@ -1,0 +1,16 @@
+<div class="mt50"></div>
+<div class="row">
+  <div class="col col-md-10 col-md-offset-1 col-sm-12">
+    <h1>
+      <%= @formation_talk.title %>
+    </h1>
+    <div class="sermon">
+      <%= render "formationBox" %>
+        <%= raw @formation_talk.body %>
+    </div>
+
+    <% if user_signed_in? && current_user.roles.include?("admin") %>
+      <%= link_to 'Edit' , edit_formation_talk_path(@formation_talk) %>
+        <% end %>
+  </div>
+</div>

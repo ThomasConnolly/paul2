@@ -1,0 +1,7 @@
+<% @books.each do |book| %>
+ <p class="tiny"> <%= book.title %>
+ <%= link_to "Edit", edit_book_path(book) %></p>
+ <% end %>
+ <div class="mt30"></div>
+ <%= link_to "see books by author", books_author_path %>
+ <%= link_to "see books by title", books_title_path %>

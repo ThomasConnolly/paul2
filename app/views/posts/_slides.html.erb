@@ -1,0 +1,4 @@
+  <% post.photos.each do |photo| %>
+    <%= link_to cl_image_tag(photo.path, { width: '240', crop:
+     :fit }) %>
+  <% end %>

@@ -1,0 +1,20 @@
+<h1>show this opportunity</h1>
+
+<div class="main-body">
+
+  <p> <strong>Ministry:</strong><%= raw sanitize @opportunity.ministry %></p>
+
+  <p><strong>Who:</strong><%= @opportunity.who %></p>
+  <p><strong>What:</strong>
+    <%= @opportunity.what %></p>
+  <p><strong>Where:</strong><%= @opportunity.where %></p>
+  <p><strong>When:</strong> <%= @opportunity.when %> </p>
+  <!-- <p> -->
+  <!-- <strong>Vestry liaison person</strong> -->
+  <%#= @opportunity.user.username %>
+    <!-- </p> -->
+  <% if user_signed_in? && current_user.roles.include?("admin") %>
+    <%= link_to 'Edit' , edit_opportunity_path(@opportunity) %> |
+  <% end %>
+    <%= link_to 'Back' , opportunities_path %>
+</div>

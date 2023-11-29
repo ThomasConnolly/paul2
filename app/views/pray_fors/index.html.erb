@@ -1,0 +1,15 @@
+
+<h1>We are praying for</h1>
+<%= link_to "Let's pray for... (Click to add a new name)" , new_pray_for_path %>
+  <div class="mb-4"></div>
+<p><strong>
+<% @pray_fors.each do |pray_for| %>
+  <%= pray_for.first_name %>. </strong>
+  <%= pray_for.reason %> 
+    <% if user_signed_in? && current_user.roles.include?("admin") %>
+      <%= link_to 'Edit' , edit_pray_for_path(pray_for) %> |
+      <%= link_to "Destroy" , pray_for_path(pray_for), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }%>
+    <%end%>
+  <br>
+<%end%>
+</p>

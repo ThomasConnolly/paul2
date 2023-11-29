@@ -1,0 +1,6 @@
+<h1>Anniversaries </h1>
+<% @anniversaries.each do |a| %>
+  <p><strong><%= a.salutation %>&nbsp;<%= a.last_name %></strong>,
+    &nbsp; <%= a.marriage.strftime('%m%-d') %>
+<% end %>
+

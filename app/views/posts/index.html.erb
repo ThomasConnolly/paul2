@@ -1,0 +1,68 @@
+<div class="row">
+<div class="col-md-8 col-sm-12 main-body">
+  <section>
+    <h1>Family Ties</h1>
+    <h2> A Facebook-like feature for our church family</h2>
+    <p><strong>How is it like Facebook?</strong> It's a social medium.</p>
+    <p><strong>How is it not like Facebook?</strong> As a Christian community, we strive to love one another and to
+      share the goodness of God's creation. Political and controversial posts tend to polarize; totally opposite of
+      why this feature is on our website. Please respect this sentiment.</p>
+  </section>
+  <section>
+    <h2><%= link_to "Create a post" , new_post_path %> </h2>
+    <hr class="my-4">
+  </section>
+  <section>
+    <h2>Here are the latest posts</h2>
+    <% if !user_signed_in? %>
+      <p>Anyone can read these posts, but to create a post or to make a comment, you must be registered and signed in. 
+      <%= link_to "Click to register" , new_user_registration_path %> </p>
+    <% end %>
+
+  <% @posts.each do |post| %>
+    <p><em> <strong><%= post.user.username %> </strong> </em>:: 
+    <%=post.content %>
+    <small> Posted <%= time_ago_in_words(post.created_at) %> ago.  
+    <%=pluralize(post.comments.count, "comment" ) %> 
+    <%= link_to "Show" , post_path(post[:id]) %> </small> 
+    <% if user_signed_in? && current_user == post.user %>
+      <small><%=link_to " | Edit" , edit_post_path(post[:id]) %> 
+      <%=link_to " | Delete" , post_path(post), data: { turbo_method: :delete,  turbo_confirm: 
+      "Are you sure?"} %> </small> </p>
+    <% end %>
+    <hr>
+  <% end %>
+  </section>
+</div><!--main-body -->
+
+<div class="col col-md-4 col-sm-8 px-4" style="background-color: #e2e2e2;">
+  <section>
+    <h2>About Family Ties</h2>
+    <p>Our unity as family begins with our baptism and is strengthened at the Lord's table, where we partake of the
+      body and blood of Jesus. It continues in our homes and the marketplace as we commune with one another. Family
+      ties are strengthened every time we interact with each other.</p>
+
+    <h2> Tell your story</h2>
+    <p>Don't let your fellow parishioners learn at your funeral that they had something in common with you!</p>
+    <% if user_signed_in? %>
+      <p>Click <%= link_to "here" , edit_profile_path(current_user.profile) %> for a questionnaire, of sorts, that you
+          can use to introduce your deeper self. You can edit your profile from time to time as you wish.</p>
+    <% else %>
+      <p><%= link_to "Sign in or register so you can create a profile." , new_user_session_path %>
+    <% end %>
+      <h2>Life's Events</h2>
+      <%= render partial: "members/birthdays" %>
+      <%= render partial: "anniversaries/anniversaries" %>
+
+    <h2>Your prayers are needed</h2>
+    <h4> We pray for... </h4>
+      <% @pray_fors.each do |pray_for| %>
+        <p><strong><%= pray_for.first_name %>. </strong>
+        <%= pray_for.reason if pray_for.reason %>
+      <% end %></p>
+    <hr>
+    <%= link_to "Let's pray for... (Click to add a name)" , new_pray_for_path %>
+
+</div> -->
+<!--sidebar-->
+</div>

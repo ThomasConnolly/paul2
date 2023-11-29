@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col col-md-8 col-md-offset-2 col-sm-12">
+    <h1>The History of Marriage</h1>
+    <p>A three-lecture series delivered by the Rev. Wendel "Tad" Meyer, assiting priest at St. Paul's</p>
+    <p><b>Here are the transcripts:</b></p>
+
+    <div class="mt30"></div>
+
+    <table class="table table-striped">
+      <tbody>
+        <% @marriage_talks.each do |talk| %>
+          <tr>
+            <td>
+              <h4>
+                <%= link_to talk.title, talk %>
+              </h4>
+              <p><strong>Delivered on <%= talk.delivered_on.strftime("%b %d, %Y") %></strong></p>
+              <% end %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

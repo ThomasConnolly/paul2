@@ -1,0 +1,9 @@
+<%= simple_form_for @post do |f| %>
+
+  <%#= f.file_field :picture, direct_upload: true %> 
+  <%#= f.file_field :photos, direct_upload: true, multiple: true %>
+  <%= f.rich_text_area :content, placeholder: "Type your post here." %>
+  <div class="mt-3">
+  <%=  f.submit "Submit",  class: "btn btn-success"  %> &nbsp; <%= link_to "Cancel" , :back, class: "btn btn-danger" %>
+  </div>
+<% end %>

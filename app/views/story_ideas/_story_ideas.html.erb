@@ -1,0 +1,32 @@
+<% @story_ideas.each do |story_idea| %>
+  <% if story_idea.user.avatar.url.present? %>
+  <div id="avatar-owner">
+    <%= image_tag(story_idea.user.avatar.url, class: "float-start") %>
+  </div>
+  <% else %>
+  <div class="default-avatar"><h5>Your<br>Picture<br>Here</h5>
+  </div>
+  <% end %>
+  <br>
+  <h3>
+    <%= story_idea.title %></h3>
+      <p><%= simple_format(story_idea.body).html_safe %><br>
+    <div class="comments-user"><p><small>Idea submitted  
+      <%= time_ago_in_words(story_idea.created_at) %> ago by 
+      <%= story_idea.user.username %> | 
+      <%= link_to "Show", story_idea_path(story_idea) %> | 
+    <% if current_user == story_idea.user %>
+      <%= link_to "Edit", edit_story_idea_path(story_idea) %> &nbsp;
+      <%= link_to "Delete"  { turbo_confirm: 'This will delete your story idea and all its comments.' , turbo_method: :delete } %>
+    </span></p>
+    <% end %>
+  <% end %>
+    <div class="clearall"></div>
+<section id="comments-section">
+   <%= render partial: 'comments/form', locals: {commentable: @story_idea} %>
+  <%= render partial: 'comments/comments', locals: {comments: @comments} %>
+    <hr>
+ 
+   
+</section>
+<% end %>

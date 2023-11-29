@@ -1,0 +1,6 @@
+
+<h1>Links</h1>
+  <% @links.each do |link| %>
+    <h2 class="mt-3"> <%= link.event %> </h2>
+    <%= link_to 'Edit', edit_link_path(link) %> </br>
+  <% end %>

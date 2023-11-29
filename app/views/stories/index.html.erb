@@ -1,0 +1,19 @@
+<p style="color: green">
+  <%= notice %>
+</p>
+<%= link_to "Submit your story" , new_story_path %>, &nbsp; or, <<%= link_to "Have a story idea? Submit it here." ,
+    story_ideas_path %>
+
+    <h1>Stories</h1>
+
+
+    <div id="stories">
+      <% @stories.each do |story| %>
+        <p><strong>
+            <%= story.title %>, &nbsp;
+          </strong> <small> by
+          </small> &nbsp;
+          <%= link_to " Show this story" , story %>
+        </p>
+        <% end %>
+    </div>

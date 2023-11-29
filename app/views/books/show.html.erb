@@ -1,0 +1,47 @@
+<p id="notice">
+  <%= notice %>
+</p>
+<div class="mt-5"></div>
+
+<div class="row">
+  <div class="col-md-3 offset-md-1">
+    <div class="image-center">
+      <% if @book.url.present? %>
+        <%= image_tag(@book.url, width: "265" ) %>
+
+          <% else %>
+            <%= image_tag("https://covers.openlibrary.org/b/isbn/#{@book.isbn}-M.jpg", width: "265" ) %>
+              <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-6 offset-md-1">
+
+    <p> <strong>
+        <%= @book.title.titleize %>
+      </strong><br>
+      <em>
+        <%= @book.author.titleize %><br>
+      </em>
+      <%= @book.subject %><br>
+        <%= @book.description %><br>
+    </p>
+
+    <p> Label on this book: <%= @book.dewey %> / <%= @book.cutter %>
+    </p>
+
+
+    <% if user_signed_in? && current_user.roles.include?("admin") %>
+      <p><strong>
+          <%= link_to "Edit" , edit_book_path %>
+        </strong><br></p>
+      <% end %>
+
+        <p>
+          <%= link_to 'Search for a different book' , books_path %>
+        </p>
+  </div>
+  <div class="mt-5">
+
+  </div>
+</div> <!-- row -->

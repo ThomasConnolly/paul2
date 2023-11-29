@@ -1,0 +1,18 @@
+<div class="main-body">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= raw sanitize @homilist.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @homilist.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_homilist_path(@homilist) %> |
+<%= link_to 'Back', homilists_path %>
+</div>

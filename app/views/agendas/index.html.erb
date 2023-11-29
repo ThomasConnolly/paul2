@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+  <h1>Agendas</h1>
+  <div id="agendas">
+    <h2><%= link_to "Create new agenda", new_agenda_path %></h2><br>
+  <% @agendas.each do |agenda| %>
+   <h2 class="mb3"> <%= link_to agenda.meeting_date.strftime("%B %d, %Y")  %></h2>
+  <% end %>  
+</div>

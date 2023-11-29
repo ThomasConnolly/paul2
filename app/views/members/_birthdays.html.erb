@@ -1,0 +1,8 @@
+<h3>Birthdays</h3>
+<p>
+  <% birthdays_this_week.each do |member| %>
+    <%= member.first_name. titleize %> <%= member.last_name.titleize %>,
+    <%= member.birthday.strftime("%B %-d") %><br>
+  <% end %>
+  </p>
+

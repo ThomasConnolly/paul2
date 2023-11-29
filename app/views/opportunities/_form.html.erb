@@ -1,0 +1,11 @@
+<%= form_for(@opportunity) do |f| %>
+  <%= f.text_field :ministry, placeholder: "Ministry" %>
+  <%= f.text_field :who, placeholder: "who" %>
+  <%= f.text_field :what, placeholder: "what" %>
+  <%= f.text_field :when, placeholder: "when" %>
+  <%= f.text_field :where, placeholder: "where" %>
+  <%= f.select :user_id, options_from_collection_for_select(@users, :id, :username) %>
+  <%= f.submit "Submit", class: "btn btn-success"  %>
+<% end %>
+
+<%= link_to "<< Back", opportunities_path %>

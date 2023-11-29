@@ -1,0 +1,12 @@
+
+<%= simple_form_for @vnote do |f| %>
+  <div class="mb-3">
+    <%= f.text_field :title, placeholder: "Put title here", autofocus: true %>
+  </div>
+  <div data-controller="trix" data-turbo="false" class="mb-3">
+    <%= f.rich_text_area :content, data: { trix_target: "trix" } %>
+  </div>
+   <%= f.submit "Submit" , class: "btn btn-success" %> &nbsp;
+   <%= link_to "Cancel", :back, class: "btn btn-danger" %>
+   </trix-editor>
+<% end %>

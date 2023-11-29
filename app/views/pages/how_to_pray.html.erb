@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-10 offset-lg-1">
+  <div class="mt-5"></div>
+    <%= cl_image_tag("PrayLogo_xl4c08.jpg", width: "80%", class: "image-center") %>
+    <h2><%= link_to "What is prayer?", anchor: "what_is" %></h2>
+    <h2><%= link_to "Tips for your hour of prayer", anchor: "your_hour" %></h2>
+    <h2><%= link_to "Our parish prayer", anchor: "parish_prayer" %></h2>
+    <h2><%= link_to "Book of Common Prayer", anchor: "bcp" %></h2>
+    <h2 id="what_is">What is prayer?</h2>
+      <p>Simply stated, prayer is communication with God.  And communication has many and varied forms.</p>
+      <p>Prayer can be a petition to God for whatever need one has at any given time: strength, courage (moral, emotional physical), patience, etc.</p>
+      <p>Prayer can be time to sit quietly and empty one’s mind of all the  busyness that keeps us from being available to God.  We can use silence to connect with the God who lives within each of us.  This kind of prayer has no objective other than sitting comfortably and attentively to the silent presence of Love within.</p>
+      <p>Prayer might be an opportunity to thank God for life and all the good things God blesses us with.</p>
+      <p>Prayer, at times, is a slow and conscious reading of some spiritual reading from Scripture, from the Book of Common Prayer, from one of the many writers of spiritual books.</p>
+      <p>Prayer might be a request for intercession in the life of one of our family members, friends, or those people we know are in dangerous or fragile situations.</p>
+      <p>Prayer is always welcomed by God, even if only to contemplate how God loves us unconditionally just where we are in our lives at the moment. God’s love is limitless and unending. All of God’s children are loved equally regardless of their imperfections.</p>
+      <p>Prayer is an opportunity to connect, to communicate, and to rest in the company of our Maker.  The form our prayer takes is irrelevant.  The intention of our prayer is what matters most. </p>
+    <h2 id="your_hour">Tips for an hour of prayer</h2>
+      <p>Your hour will fly by if you spend 12 minutes each on these five types of prayer:</p>
+      <p>1. <b>Praise</b> of Almighty God. Focus solely on the magesty of God and His works.</p>
+      <p>2. <b>Confession </b>of sin. Examine your heart and acknowledge your failings, ask forgiveness and seek reconciliation.</p>
+      <p>3. <b>Thanksgiving.</b> Thank God for your life, for family, for friends and your church.</p>
+      <p>4. <b>Petition. </b> Ask God to continue to bless you. Ask for healing. Ask to become a better person. </p>
+      <p>5. <b>Intercession.</b> This is a prayer for others. Pray for a daughter who is in a troubled relationship. Ask for God's intercession in war-torn countries, that there might be peace. Pray for those on our parish prayer list. <%= link_to "See list here.", posts_path(anchor: "prayer-list") %></p>
+    <h2 id="parish_prayer">Our parish prayer</h2>
+      <p>Almighty and everlasting God, make our parish of St. Paul's truly a community of prayer and belonging.  Raise up in our midst the resources and leadership which will enable us to act upon what you would have us do, in this place and in a ministry of love and concern for others.  
+      Open my mind and heart to discern what you would have me do; through Jesus Christ our Lord.</p> <p>Amen</p>
+    <h2 id="bcp">Book of Common Prayer</h2>
+     <%= cl_image_tag("books-of-common-prayer_oasoqz.jpg", width: "40%", class: "floatright") %>
+      <p>There's a prayer for almost every occasion in the Episcopal <em><b>Book of Common Prayer.</b></em>  And it's on line <%= link_to "here.", "https://www.churchpublishing.org/siteassets/pdf/book-of-common-prayer/book-of-common-prayer-2006.pdf", target: "blank" %> Look for Prayers and Thanksgiving. The BCP also contains a catechism, some historical documents, the psalms, many collects and liturgies for life's events. It is not copyrighted because the church wants everyone to have all sorts of access and widespread usage!</p>
+  </div>
+</div>

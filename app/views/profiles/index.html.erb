@@ -1,0 +1,16 @@
+<h1>Profiles of the Saint Paul's Family</h1>
+<p>
+  Get to know your fellow parishioners. Please urge your friends to fill out their profiles.
+</p class="mt-4">
+<% @users.each do |user| %>
+  <% if user.avatar.attached? %>
+    <%= image_tag user.avatar, width: "120" , class: "float-left" %>
+  <% end %>
+<h2><%= user.username %></h2>
+  <%if user.profile.cities.present? %>
+    <p><small><%=link_to "Show this profile" , profile_path(user.profile) %>
+    </small></p>
+  <% else %>
+    <p>Invite <%= user.first_name %> to create a profile.</p>
+  <% end %>
+<% end %>

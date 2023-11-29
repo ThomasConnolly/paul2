@@ -1,0 +1,16 @@
+<h2> Here's the latest Stripe report</h2>
+  <p> <strong>Date</strong> <%= @stripe_report.created_at.strftime("%b %_d, %Y") %></p>
+  <p><strong>Name</strong> <%= @stripe_report.user.username %></p>
+  <p><strong>Amount</strong> <%= number_to_currency(@stripe_report.amount/100.to_i) %></p>
+  <p><strong>Stripe Fee</strong>  <%= @stripe_report.fee/100.to_f %></p>
+  <p><strong>Net to Church</strong> <%= @stripe_report.net/100.to_f %></p>
+  <p><strong>Type</strong> <% if @stripe_report.pledge_id == nil %>
+    donation
+  <% else %>
+    <%= @stripe_report.pledge.plan %>
+  <% end %>  </p>
+
+ <p>To see all of the recent Stripe payments, <%= link_to "click here after signing in on the website.", 
+ "https://www.saintpaulsnaples.org/stripe_reports" %></p>
+
+<p><small>This message is generated automatically when Stripe sends data to our website.</small></p>

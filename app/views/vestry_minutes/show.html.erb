@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+  <p id="notice">
+    <%= notice %></p>
+  <h2>Vestry meeting of <%= @vestry_minute.date.strftime("%B %-d, %Y") %><br>
+    <% if @vestry_minute.draft? %>
+      D R A F T
+    <% end %>
+  </h2>
+
+  <% if @vestry_minute.minutes.present? %>
+    <%= sanitize @vestry_minute.minutes %>
+  <% else %>
+    <%= @vestry_minute.body %>
+  <% end %>
+                
+  <div class="mt-5"></div>
+    <% if user_signed_in? && current_user.roles.include?("admin") %>
+      <%= link_to 'Edit' , edit_vestry_minute_path(@vestry_minute) %> |
+      <%= link_to 'Back' , vestry_minutes_path %>
+    <% end %>
+    </div>
+  </div>
+</div>

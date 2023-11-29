@@ -1,0 +1,21 @@
+
+<div class="mt-5"></div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= image_tag("https://res.cloudinary.com/saintpaulsnaples-org/image/upload/v1645283586/jodiSm_fle4od.jpg",
+      width: "100%" )%>
+      <h2>
+        <%= @event.title %>
+      </h2>
+      <p>Ticket price: <%= number_to_currency @event.price*0.01 %>
+      </p>
+      <p>Event date: <%= @event.date.strftime('%A, %B %e, %Y') %>, time: <%= @event.time %>
+      </p>
+      <p><strong>
+          <%= link_to "Get tickets!" , new_event_ticket_path(@event) %>
+        </strong></p>
+      <% if user_signed_in? && current_user.roles.include?("admin") %>
+        <%= link_to 'Edit' , edit_event_path %>
+          <% end %>
+  </div>
+</div>

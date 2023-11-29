@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Paul2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>St. Paul's Episcopal Church, Naples FL, Spirituality, Prayer, Worship,
+    Farmers Market, Haitian Episcopal Church</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://js.stripe.com/v3/"></script>
+  <%= stylesheet_link_tag "application.css", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", type: "module", "data-turbo-track": "reload", defer: true %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body class="<%= controller_name %>  <%= action_name %>">
+
+  <div class="container">
+    <div class="page">
+    <%= render '/layouts/header' %>
+    <%= render '/layouts/navbar' %>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  
+  <%= yield %>
+
+    <%= render 'layouts/footer' %>
+    <%#= render 'layouts/donate' %>
+
+    </div><!-- container -->
+  </div> <!-- page -->
+</body>
+
 </html>

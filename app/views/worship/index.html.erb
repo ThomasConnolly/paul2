@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-8 col-sm-12 main-body">
+    <h1>Spirituality at Saint Paul's</h1>
+      <p>Two distinctive Eucharistic liturgies (ritualistic spiritual worship services) are offered at St. Paul's every Sunday morning during season, generally November through April. Outside that period there is one morning service, at 9 a.m.</p> 
+      <p>Here's how they differ:</p>
+      <p>The <b>8 a.m. </b>service is Rite I. If you are attracted to the English language as used for the past 500 years, Rite I might be your choice. It is a quiet, sober and contemplative worship of The Transcendent God. </p>  
+      <p>Our <b>10 a.m. </b>service uses Rite II, a more contemporary English polished over our long history of worship in the vernacular. Organ or piano music accompanies the choir to enhance the liturgy.</p>
+      <p>If you are from the Roman Catholic or Lutheran tradition, you will feel right at home here. Even if you've never been inside a church and are now discovering your spirituality, you will be welcome at St. Paul's. A printed guide, or worship bulletin, is provided to help you follow the service.</p>
+      <p><strong><em>All baptized Christians are welcome to receive God's gift of Holy Communion.</em></strong></p>
+    <h4><%= link_to 'Click here for a map', 'pages/directions' %></h4>
+      <p>For information about our Sunday 5 p.m. service in the Creole language, <%= link_to 'click here.', pages_haitian_path %></p>
+    <h1>What's an Episcopalian?</h1>
+          <p>How can we say we're both catholic and protestant? It's not that complicated. We walk "the middle way."</p>
+          <p>Episcopalians are a part of a world-wide association of churches called collectively, "The Anglican Communion." We share certain characteristics and modes of worship that are distinctive and share a common communion. We are liturgical, creedal and scriptural.</p>
+          <p>One unique feature of being Anglican/Episcopalian is our polity (the churchy word for policy). We retain the ancient three-fold ministry of bishops, priests and deacons, but authority and responsibility are not functions of our clergy alone. We believe strongly in governance by the entire church, not just its leaders. No bishop may claim a superior status  over another and no bishop gets to be a bishop unless elected by both clergy and laity. No priest may "rule" over his/her parish; authority is shared between the clergy and the parish council (we call it a vestry) and the same applies all the way up. In this way, all members of the Church are and may be held accountable to the others.</p>
+          <p>There are other things which mark us as different. We invite you to check us out at St. Paul's. There's room here for you, your questions and even your doubts!</p>
+               
+  </div><!-- main_body -->
+
+    <div class="col-md-4 py-4" style="background-color: #e1e1e1;"> 
+      <h2>Spirituality of Intimacy</h2>
+        <p>Transcrips of this series of lectures/discussion are available <%= link_to "here.", formation_talks_path %></p>
+        <h2>How we pray</h2>
+            <%= cl_image_tag("books-of-common-prayer_oasoqz.jpg", width: "95%", class: "image-center") %>
+          </a>
+            <p>There's a prayer for almost every occasion in the Episcopal <em><b>Book of Common Prayer. </b></em> <%= link_to "Click here", "https://www.youtube.com/embed/KCn5edLZ72o" %> to see a humorous but informative introduction to the <b>BCP</b></p>
+            <p>Browse or read the <em>Book of Common Prayer</em> on line <%= link_to "here.", "https://www.bcponline.org", target: "blank" %></p>
+             <div class="mt30"></div> 
+              <h2>Opportunities for spirituality</h2>
+                <p><em><b>Centering prayer</b></em> A small group gathers every Monday at 10 a.m. (in season&mdash;November-April, generally) for meditative prayer in Serson Hall (the office building). All are invited.  No experience necessary.  Come!  Any Monday or all. Deepen your connection with God.  Allow your soul to re-center.  A spiritual silence, deeply individual yet wonderfully shared.  Engage a Christian spiritual tradition that is centuries old, yet re-discovered and celebrated today as the popularity of "mindfulness meditation" spreads and its benefits to body, mind, mental state and productivity have been documented by the medical community.  If peace is missing in your life, it can await you here.  Our friend Father Al, Benedictine Abbot and priest of the United Catholic Church, facilitates.</p>
+                <p>Discussion afterward is for all who wish to engage, about a wonderful book for spiritual direction.</p>
+    </div>
+
+
+<div class="modal fade" id="bcpModal" tabindex="-1" role="dialog"
+  aria-labelledby="bcpModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe  width="100%" height="473" src="https://www.youtube.com/embed/KCn5edLZ72o" allow="autoplay; encrypted-media">
+        </iframe>
+      </div>
+        <div class="modal-footer">
+          <button type="botton" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+  
+  <script>
+    $("#bcpModal").on('hidden.bs.modal', function (e) {
+    $("#bcpModal iframe").attr("src", $("#bcpModal iframe").attr("src"));
+});
+  </script>
+
+   <!-- <div id="presiding-bishop"> 
+      <div id="videoModalPB" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <iframe width="820" height="510" src=""></iframe>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+   <!--<script>
+      $('#toBishopVideo').click(function() {
+       var src="http://fast.wistia.net/embed/iframe/qo6rqw8aum?canonicalUrl=https%3A%2F%2Fepiscopalchurch.wistia.com%2Fmedias%2Fqo6rqw8aum&canonicalTitle=Presiding%20Bishop%20Michael%20Curry%20-%20EpiscopalChurch" ;
+       $('#videoModalPB').modal('show');
+       $('#videoModalPB iframe').attr('src', src);
+      });
+
+      $('#videoModalPB button').click(function() {
+        $('#videoModalPB iframe').removeAttr('src');
+      });
+    </script>-->
+</div><!--row -->
+<div class="mt-5"></div>

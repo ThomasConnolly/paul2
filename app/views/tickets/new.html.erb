@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= cl_image_tag("jodiSm_fle4od.jpg", width: "70%" , class: "image-center" ) %>
+
+      <h1>
+        <%= @event.title %>
+      </h1>
+      <p>
+        <%= @event.date.strftime('%A, %B %e, %Y') %>,
+          <%= number_to_currency @event.price*0.01 %> per ticket.
+      </p>
+
+      <%= simple_form_for([@event, @ticket]) do |f| %>
+        <%= f.hidden_field :price, :value=> @event.price %>
+          <%= f.hidden_field :event_id, :value=> @event.id %>
+            <%= f.text_field :first_name %> &nbsp;<%= f.text_field :last_name %>
+                <%= f.text_field :email %> <br>
+                  <%= f.number_field :quantity, label: "Number of tickets" %>
+                    <div class="sr-only">
+                      <%= f.text_field :honey %>
+                    </div>
+                    <%= f.submit "Review your order" , class: "btn btn-primary btn-lg" %>
+                      <% end %>
+  </div>
+</div>

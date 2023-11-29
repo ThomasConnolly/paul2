@@ -1,0 +1,25 @@
+<h1>Concerts at St. Paul's</h1>
+<% @events.limit(2).each do |event| %>
+  <h2>
+    <%= event.title %>
+  </h2>
+  <p>
+    <%= event.date.strftime('%A, %B %e, %Y') %>, <%= event.time %>, <%= number_to_currency event.price*0.01 %> per
+          ticket.
+  </p>
+  <h4>
+    <%= link_to 'Purchase your tickets' , new_event_ticket_path(event) %>
+  </h4>
+  <br>
+  <% if user_signed_in? && current_user.roles.include?("admin") %>
+    <p><small>
+        <%= link_to 'Edit' , edit_event_path(event) %>&nbsp; |
+          <%= link_to 'Destroy' , event, data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %>
+      </small></p>
+    <% end %>
+      <% end %>
+
+        <br>
+        <% if user_signed_in? && current_user.roles.include?("admin") %>
+          <%= link_to 'Create New Event' , new_event_path %>
+            <% end %>

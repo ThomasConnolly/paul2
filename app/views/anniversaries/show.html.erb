@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Salutation:</strong>
+  <%= @anniversary.salutation %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @anniversary.last_name %>
+</p>
+
+<p>
+  <strong>Anniversary:</strong>
+  <%= @anniversary.marriage.strftime('%m%-d') %>
+</p>
+
+<%= link_to 'Edit', edit_anniversary_path(@anniversary) %> |
+<%= link_to 'Back', anniversaries_path %>

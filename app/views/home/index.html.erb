@@ -1,0 +1,174 @@
+<section id="donate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="d-flex justify-content-evenly mb-3 text-white" style="background-color: #0d4884;">
+        <div class="pt-3"><p><strong>SUPPORT ST. PAUL'S</strong></p> 
+        </div>
+          <div class="p-2">
+            <%= link_to "DONATE NOW", "https://buy.stripe.com/4gw5o32ih7tn4004gh", class: "btn btn-primary" %> 
+          </div> 
+        </div>
+      </div>
+   </div>
+  </div>
+</section>
+<div class="clearfix"></div>
+
+<div class="container">
+<div class="row">
+
+  <div class="col-md-8 main-body pe-5">
+   <%= cl_image_tag("https://res.cloudinary.com/saintpaulsnaples-org/image/upload/v1674960629/TomGreenAltar_zdf3jy.jpg", alt: "Ordinary time vestments", width: "99%") %>
+    <h1 class="mt-4">Join us in worship</h1>
+      <p><strong>Sundays at 8 and 10 a.m. </strong></p>
+      <p><strong>All are welcome at St. Paul's!</strong> If you can't be with us in person, join us 
+        on <%= link_to "YouTube" ,("https://www.youtube.com/@stpaulsnaples6762/streams") %> where we live-stream the 10 a.m. mass.</p>
+      <% if @bulletin.url.present? %>
+        <p><strong><%= link_to "Here is the Sunday bulletin", "#{@bulletin.url}" %>
+        </strong></p>
+      <% else %> 
+        <p>Sunday's bulletin will be available here on Thursday.</p>
+      <% end %>
+      <p>To learn about our worship service and about the<strong> <em>Episcopal Church,</em></strong>
+        <%=link_to "click here" , worship_index_path %>. And click on that shelf of red books to get a
+        short, cute introduction to our time-honored <em>Book of Common Prayer.</em></p>
+      <p><%= link_to "Click here for the on-line Book of Common Prayer" ,
+        ("https://www.churchpublishing.org/siteassets/pdf/book-of-common-prayer/book-of-common-prayer-2006.pdf") %></p>
+
+        
+      <p><strong><%= link_to "Click here for Scripture Readings" ,"http://www.lectionarypage.net" %></strong> </p>
+      <%=cl_image_tag("https://res.cloudinary.com/saintpaulsnaples-org/image/upload/v1683214213/ChosenPromo_uutmzq.jpg", width: "99%", alt: "Chosen promotion picture") %>
+    
+      <h2 class="mt-3">Reflect and Connect </h2>
+      <p>This group meets at 9:30 a.m. Wednesdays in the library to view and discuss the highly acclaimed film series, <em>The Chosen,"</em> Next week we will watch and discuss Season 1, Episode 4. All are welcome.</p>
+      <h2 class="mt-3">Sacred Ground Series</h2>
+      <p>This is a series of videos, readings and small-group discussions about race. This is highly
+        recommended if you have questions about "critical race theory," a topic needlessly politicized. To
+        watch an introduction, <%= link_to "click here. " , 
+        "https://www.episcopalchurch.org/sacred-ground/" %></p>
+        <p>Interested in pursuing <em>Sacred Ground</em> further? As in participating in a small-group 
+        study? Contact Nora Broszeit or Tom Connolly. </p>
+      
+      <section id="market">
+        <%= cl_image_tag("FarmMarketLogoOutreach2_up8pqz.png", class: "mx-auto d-block my-5" , 
+        width: "40%", alt: "Farmers' market logo" ) %>
+        <h2 class="mt-3">Farmers' Market now open!</h2>
+          <div class="border border-3 m-5">
+            <h3 class="text-center"> Books are back! <br>
+            </h3>
+            <p class="p-3">"The Bookman" retired last year, but volunteers at St. Paul's picked up the ball and we are once again selling used books at the Farmers' Market. They're inside 
+              our parish hall, so weather won't ever be an issue.</p>
+            <%# <h3 class="text-center">Have books to spare?</h3>
+            <p class="p-3">We will welcome donations; proceeds of the book store go to worthy causes. Drive up to the 
+                  office Monday to Friday and someone will unload your books  </p> %>
+          </div>
+          <p><strong>The market is open!</strong></p>
+            <p>Welcome to the easy in-and-out St. Paul's Farmer's Market! Stop by the hospitality pit, 
+            have a hotdog and introduce yourself to new friend! The market is open November through
+            April, Saturdays from 8 a.m.to noon. Lots of fresh produce and select items of interest for sale.
+            </p>
+             <p>If you are a prospective vendor, please call the office, as we have room for more vendors.</p>
+            <p>For more information about the market, <%= link_to "click here." , markets_index_path %></p>
+      </section>
+
+        <div class="mt-4">
+          <%= cl_image_tag("pray_osljoq.jpg", width: "350" , class: "float-start me-3", alt: "PrayLogo") %>
+            <p><strong>Almighty God, who created us in your own image: Grant us
+              grace fearlessly to contend against evil and to make no peace
+              with oppression; and, that we may reverently use our freedom,
+              help us to employ it in the maintenance of justice in our
+              communities and among the nations, to the glory of your holy
+              Name; through Jesus Christ our Lord, who lives and reigns with
+              you and the Holy Spirit, one God, now and for ever. Amen.</strong>
+            </p>
+            <p class="text-end"> &mdash;Book of Common Prayer</p>
+        </div>
+       
+        <h2 class="mt-3">Supporters of Tumaini Fund</h2>
+        <%= cl_image_tag("SusanWilson_dvvx0e.jpg", width: "60%" , class: "float-end ms-3", alt: "Susan Wilson picture" ) %>
+          <p>Dr. Susan Wilson, an English family physician, is full of energy and zealfor the Lord. She
+            founded <em>Tumaini </em>(the word means "hope") <em> Fund </em> to put her faith to work in
+            the AIDS-ravaged Kagera region of Northwest Tanzania. There she established an orphanage for
+            thousands of children who lost their moms and dads to AIDS. In addition to monitary
+            contributions, the women of our church have sewn numerous
+            dresses, as seen here with Dr. Wilson.</p>
+          <p>Parishioners Mike Moore and Roger Conant are directors for the fund in the United States.
+          </p>
+
+        <h2 class="mt-3">Supporters of 'ERD'</h2>
+        <%= link_to image_tag("https://www.episcopalrelief.org/wp-content/uploads/2019/01/logo.png",
+          alt:"Episcopal Relief &amp; Development", width: '404' , crop: "scale" , class: "d-block mx-auto"
+          ), "https://episcopalrelief.org/" %>
+          <p class="mt-3">Episcopal Relief and Development is a charity you can trust to use your
+            resources wisely and lovingly. Click the logo above to learn more and make a donation.</p>
+
+          <div class="mt-3" id="billboard"> 
+          <%= image_tag("https://s3-us-west-2.amazonaws.com/saintpaulsnaplesorg/GodLovesNoException.png", 
+                        width:"99%", class: "d-block mx-auto mt-5" , fetch_format: "auto", alt: "God Loves, No Exception signboard" ) %>
+
+          </div> 
+      </div>
+  
+    <div class="col-md-4 px-4", style="background-color: #e2e2e2;">
+
+    <p class="text-center">
+      <%= Date.current.strftime("%A, %B %e, %Y") %>
+    </p>
+    <%= cl_image_tag("logos/update.png", width: "99%", alt: "Update logo" ) %>
+    <h2>Next vestry meeting</h2>
+      <p class="text-center"> <%= "#{@vestry_meeting.date.strftime('%B %d, %Y')}" %> </p>
+      <p> Visitors are welcome to observe our church leadership team in action. 6:30 p.m. in the library, Serson Hall. </p>
+    
+
+   <div id="links">
+  <h2 class="mt-3">All the links</h2>
+  <p><strong>
+    <%= link_to "Sunday worship service, 9 a.m." , "https://www.youtube.com/@stpaulsnaples6762/streams" %>
+    </strong> Stream on your smart phone, computer or television. Subscribe to our YouTube channel using this
+    link. We have a new setup, with three cameras and good audio for home viewers.</p>
+  <% if @bulletin.url.present? %>
+    <p><strong>
+      <%= link_to "Sunday bulletin" , "#{@bulletin.url}" %>
+    </strong></p>
+  <% else %>
+    <p><strong> Sunday's bulletin will be linked here on Thursday</strong></p>
+  <% end %>
+    <p><strong>Wednesday evening adult education, 6:30 p.m.
+    </strong> Approximately one hour, class is held in the library, Serson Hall. We are reading and discussing the book, <em> Here All Along</em> by Sarah Hurwitz.</p>
+  <p><strong><%= link_to "Thursday wine time, 6 p.m." , "#{@wine.url}" %> </strong> 
+    Join us with your favorite libation for an hour or so of conversation on Zoom
+    </strong> This is a popular and relaxing chat room open to everyone who wishes to join in. </p>
+  <p><strong>Join us for coffee </strong> after the Sunday morning worship service. It's a time for
+    fellowship and to meet new friends. Parishioners bring snacks to share, and there's always 
+    plenty for everyone.</p>
+
+    <%= cl_image_tag("togetherLogo_grjbrm.png", width: "95%" , class: "image-center" ) %>
+   
+  
+      <p class="mt-2"><strong>There's a place for you</strong> to exercise your ministry at Saint Paul's! We are the
+        hands and feet of the Risen Lord in the modern world that is in great need. Some of our ministries
+        are <%= link_to "listed here." , opportunities_path %>
+      </p>
+    <p class="mt-3">Wearing your <strong> name tag </strong> is an act of hospitality! We want visitors
+      and our members to feel comfortable at services and coffee hour. If you don't have a name tag, call
+      the office during the week to get one.</p>
+    <%= cl_image_tag("1912588_wbdabz.png", width: "40%" , class: "mt-3 image-center" ) %>
+    <p class="mt-3"><strong>Get the Weekly Update in your email box </strong>
+      <%= link_to "by signing up here.",
+      "https://visitor.r20.constantcontact.com/d.jsp?llr=ip9lo9eab&p=oi&m=1104694077928&sit=ywgju8zfb&f=515707c1-0d44-46a0-803a-2fcb34db78a2" %>
+      </p>
+      <%=link_to cl_image_tag("Calendar-clip_zbdtul.jpg", width: "55%" , class: "mt-3 mx-auto d-block" ,
+        :fetch_format=> :auto), pages_calendar_path %>
+        <h3>Click calendar to see our activities</h3>
+    </div>
+
+    <div class="mt-3" id="ENS">
+      <h2>Episcopal News Service</h2>
+      <% @ens_feed.each do |feed| %>
+          <h5><%= link_to "#{feed.title}" , feed.url %></h5>
+          <p><%= feed.summary.gsub(/[&#8230;]/, '...' ) %></p>
+      <% end %>
+      </div>
+    </div>
+  </div>

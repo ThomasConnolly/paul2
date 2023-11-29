@@ -1,0 +1,12 @@
+<div class="mt-5"></div>
+   <div class="row">
+      <div class="col-md-6 offset-md-3">
+         <h3> <%= @pledge.user.username %> is pledging <%= number_to_currency@pledge.dollars %> <%= @pledge.plan %>
+         </h3>   
+         <p>If this is correct, select the "Next" button to enter payment details. If not, "Edit or delete."</p>
+         <%= button_to "Next" , checkout_pledges_create_path, method: :post,  params: { id: @pledge.id }, data: { turbo: 'false'}, class: "btn btn-success btn-lg", id: "pledge-checkout-button" %> 
+         <p><strong> <%= link_to "Edit or delete", edit_pledge_path %></strong></p>
+      </div>
+    </div>
+
+    

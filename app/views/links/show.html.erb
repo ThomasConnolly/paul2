@@ -1,0 +1,23 @@
+<p>
+  <strong>Event:</strong>
+  <%= @link.event %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @link.time %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @link.date.strftime("%A, %b %e") if @link.date %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @link.url %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> | <%= link_to 'Delete', link_path(@link), data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %>
+<%= link_to 'Back', links_path %>
+    

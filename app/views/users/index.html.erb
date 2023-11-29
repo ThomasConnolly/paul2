@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h3>All Users</h3>
+    <% @users.each do |user| %>
+      <p><strong><%= user.username %></strong> &nbsp; 
+      <%= user.email %> &nbsp; <%=user.id %> &nbsp; 
+      <%= link_to "Delete" , user,  data: { turbo_method: :delete } %></p>
+    <% end %><br>
+    <h3> Vestry Members </h3>
+      <% @users.where(" 'vestry' = ANY (roles)" ).each do |v| %>
+        <p><strong><%= v.username %></strong>&nbsp;
+        <%= v.email %> <br></p>
+      <% end %><br>
+    <h3>Administrators</h3>
+      <% @users.where(" 'admin' =ANY (roles)").each do |admin| %>
+         <p><strong><%= admin.username %></strong>&nbsp; 
+         <%= admin.email %></p>
+      <% end %><br>
+    <h3>Communicators</h3>
+      <% @users.where(" 'communicator' = ANY (roles)" ).each do |comm| %>
+        <p><strong><%= comm.username %></strong>&nbsp; 
+        <%= comm.email %></p>
+      <% end %>
+  </div>
+</div>

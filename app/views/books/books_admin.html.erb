@@ -1,0 +1,104 @@
+<h1>Listing books</h1>
+<% @books_admin.each do |b| %>
+  <p class="tiny">
+    <%= b.id %> | <%= b.author %>, <%= b.title %>
+    <%= b.dewey %>
+    <%= b.cutter %>
+    <%#= b.isbn %>
+    <%#= b.url %>
+    <%#= image_tag("https://covers.openlibrary.org/b/isbn/#{b.isbn}-S.jpg", width: "100" ) %>
+  <%= link_to 'show' , book_path(b) %>
+    <% if current_user && current_user.roles.include?("admin") %>
+      <%= link_to ' | edit' , edit_book_path(b) %>
+      <%= link_to ' | delete' , b, data: { turbo_confirm: "Are you sure?" }, turbo_method: :delete %><br>
+    <% end %>
+  <% end %>
+    <div class="mt-5"></div>
+<% if current_user && current_user.roles.include?("admin") %>
+
+  <p><strong>Steps to add books to the library website:</strong></p>
+  <p><strong>1. Find your book.</strong></p>
+  <p>Launch MarcEdit and click on black box, Z39.50/SRU Client. Here are the settings:
+    Retrieve Unicode, character set UTF8. See below for selecting the database.</p>
+  <p>Enter title in search box and click the green arrow. If the book is found, the title
+  will appear in the box. Double click the listing in that box and preview the marc
+  record. Call out the Dewey number to your co-worker, who will make a note of it.</p>
+  <p>If the book is not found using the title, try by author. Scroll through the list to
+      find the correct title. Or you can search by isbn. If this fails, put the book aside
+      for later and go to the next one.</p>
+    <p class=text-center><b>Book cant' be found?</b></p>
+  <p>In the event the book is not found in the Library of Congress, click "Select
+      Database" and pick another library. If the book is about theology or religion, a
+      good choice for a database is Oxford University. Click the "Select Database" in
+      options box, click on the alternate database and then click "select resource." You
+      selection will now show under the "Query Database" above the search box. If this
+      fails, go to Google and enter the title, and gather the information for the book
+      there. If that fails, just take the info from the book itself and add a reasonable
+      Dewey number (see the book on how to catalog).</p>
+    <p><strong>2. Save your book</strong></p>
+    <p>When you are in the "View MARC Record" box, you will see a line, "Save File:" Click
+      on the folder icon and give your file this name: "books27June" without quotes and
+      using the appropriate date. The machine will append the extension .mrc
+      automatically.</p>
+    <p>Make sure there's a check in the "Append" box, then click on "Download Record,"
+      upper left. The record is now saved to the file you named, on the desktop. Repeat
+      the process until you're finished with the number of books you are cataloguing that
+      session. Make sure "append" is checked or you will overwrite all the work you have
+      done.</p>
+    <p><strong>3. Create a csv file of your books</strong></p>
+    <p>In the MarcEdit program, click on "Export Tab Delimited." Migrate to the *.mrc file
+      you just created with all the books, and give it the same name you gave the .mrc
+      file, i.e., books27June. This file will have an extension of .csv (comma separated
+      value). In the box below where you just named it, select comma delimited. Now hit
+      "next" and click "Normalized field data" and click on "settings" in the lower right
+      corner. Select "load settings and click marcSettings.txt" Then click the "Export"
+      button. A alert will tell you the file has been saved on the desktop. Exit MarcEdit.
+    <p><strong>4. Edit your csv file</strong></p>
+    <p>Edit the file in Notebook+ or other text editor. First change the headers: 082 to
+      dewey, 100 to author, 245 to title, 650 to subject, and 020 to isbn.</p>
+    <p>Next, edit each line. If there's no name in the author field, use the name that
+      follows the title. It might say something like "edited by William James." In that
+      case, put James, William (editor) in the author box. In the title field, remove the
+      secondary information, usually following a forward slash. We want only the title in
+      this field. You can pretty much leave the subject field alone, even if it's empty.
+    </p>
+    <p>Sometimes there will be multiple isbn listings. just remove all but one. Remove
+      things like ":(dollar)35.00 and (pbk.). Just keep the 10- or 13-digit number.</p>
+    <p>Finally, we want only the three-digit dewey call number and two digits after the
+      period. If there are no digits after the dot, delete the dot. Save the file.</p>
+    <p>N.B. In order to import the books into our website, each book must have an author
+      and a title. Without something in those fields, the import will fail.</p>
+    <p><strong>5. Import the csv file into our website</strong></p>
+    <p><strong>Make a note of this number (write it down, because it will change after the
+        next step): <%= @last_book %> </strong></p>
+
+    <p>Just click the box "Choose File" and click on the file with the name you gave it,
+      such as "books27June.csv." Then click "upload books."</p>
+    <h4>Import books from a csv file</h4>
+    <%= simple_form_for @import, url: import_books_path, multipart: true do |f|%>
+      <%= f.alert_message "Please fix the errors below." %>
+      <%= f.file_field :file %><br>
+      <%= f.submit "Upload books" , class: "btn btn-success"   %>
+    <% end %>
+    <p><strong>6. Generate a file for printing the labels</strong></p>
+    <p>Click on <%= link_to "CSV" , books_admin_path(format: "csv" ) %> and it
+        will generate a three-column csv file preview.</p>
+
+    <p>First, change the Field type of the dewey column to "Text" from
+      "Standard" and click OK. (You're doing this to preserve the deweys that
+      start with zero. Spreadsheets always think they're dealing with integers).
+      Click OK and the spreadsheet will open fully</p>
+    <p>Then do that step again. Click on "dewey" and the entire column should
+      highlight. Go to "format" and select "text."</p>
+    <p>Now delete all the rows with the id of 1 through and including the number
+      you wrote down. (You don't want to print labels you've already printed).
+      Save this file. The machine will give it the name
+      "bookLabels-2017-06-27.csv (today's date)."
+    <p><strong>7. Print the labels</strong></p>
+    <p>Click on the Dyno icon on the Windows desktop.
+
+<div class="mt-5"></div>
+  <p><strong>To input a single book directly to the website:</strong></p>
+  <p><%= link_to "Click here" , new_book_path %></p>
+
+<% end %>

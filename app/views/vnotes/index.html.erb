@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-lg-8 main-body">
+    <h1>About the vestry forum</h1>
+    <p>Vestry members meet once a month, but are responsible for the 
+    governance and well-being of the parish 24-7. So here is a place 
+    to bring up your thoughts and ideas that may (or not) later take 
+    the form of official action.</p> 
+    <p>The agenda and its read-ahead components are now on a separate page, reserving this forum as an exchange of ideas among the vestry members. Of course that conversation should include items on the agenda. When the agenda is posted, you can access it through this page (see link at upper right). An email is automatically sent to you any time there's a new posting here.
+</p>
+    <div class="create-vnote">
+      <h2>
+        <%= link_to "Create a new topic" , new_vnote_path %>
+      </h2>
+    </div>
+    <div id="vnotes" class="mt-3">
+      <% @vnotes.each do |vnote| %>
+        <h2><%= vnote.title %></h2>
+        <div class="edit-delete-line mb-3"> <%= time_ago_in_words(vnote.created_at) %> ago by
+         <strong> <%= vnote.user.username %></strong> &nbsp; 
+        <%= link_to "Show" , vnote %>
+        </div> 
+        <hr> 
+      <% end %>
+       
+    </div>
+  </div>
+
+  <div class="col-md-4 px-4", style="background-color: #e2e2e2;">
+    <h2> Agenda</h2>
+    <p><%= link_to "Click here for the agenda for our next meeting ", agendas_path %>
+    <h2>Minutes</h2>
+    <p><%= link_to "Click here to see minutes", vestry_minutes_path %></p>
+    <div>
+      <h3>Goals for this vestry</h3>
+        <p><strong>Day care feasability</strong><br>
+        Peter Lund</p>
+        <p><strong>Fellowship dinners</strong><br>
+        Fr. Tom & team</p>
+        <p><strong>Welcomers</strong><br>
+        Lee Baron, Nora Broszeit</p>
+        <p><strong>Expense reviews</strong><br>
+        Fr. Tom, Lee Barron, Nora Broszeit & Tom Connolly</p>
+        <p><strong>Middle school outreach</strong><br>
+        Fr. Tom</p>
+        <p><strong>Planned Giving</strong><br>
+        Fr. Tom, Steve Carnell</p>
+        <p><strong>Rideshare</strong><br>
+        Lee Barron, Rich Shea</p>
+        <p><strong>New groups development</strong><br>
+        Lee Barron</p>
+        <p><strong>Stewardship</strong><br>
+        Team forming</p>
+    </div><br>
+
+    <h2>Resources for vestry members</h2>
+    <p>Subscribe to Episcopal Church Foundation's "Vital Practices" for articles, tools, and resources by and for
+      congregational leaders.
+      <%= link_to "Click here" , "http://www.ecfvp.org/account/register" , :target=> '_blank' %>
+    </p>
+    <p><strong>Here's a pdf describing how some other congregations are dealing with change</strong>
+      <%= link_to "Click here" ,
+        ("https://res.cloudinary.com/saintpaulsnaples-org/image/upload/v1457116302/something_more_nmd5we.pdf") %>
+    </p>
+
+  </div><!-- sidebar end -->
+</div><!-- row end -->

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+      <h1><%= @vnote.title %></h1>
+      <p><strong> By <%= @vnote.user.username %></strong> &nbsp <%= time_ago_in_words(@vnote.created_at) %> ago</p>
+      
+      <div class="trix-content">
+        <%= @vnote.content %>
+      </div>
+        
+      <% if current_user==@vnote.user %> |
+        <%= link_to "Edit" , edit_vnote_path(@vnote) %> | &nbsp;
+        <%= link_to "Delete", @vnote, data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %>
+      <% end %>
+      
+      <div class="mb-3"></div>
+  <section id="comments-section">
+    <h3>Comments</h3>
+      <%= render partial: "comments/comments", locals: { comments: @comments } %>
+    
+    <h3 class="mb-3">Add your comments</h3>
+    <%= render partial: "comments/form", locals: {commentable: @vnote } %>
+
+  </section>
+ 
+
+  <p><strong><%= link_to "<< Back to the forum" , vnotes_path %>
+    </strong></p>
+
+    </div>
+  </div>
+</div>

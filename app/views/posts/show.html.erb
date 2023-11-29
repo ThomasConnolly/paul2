@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Here's the post</h1>
+      <p><em>By <%= @post.user.username %></em>, 
+      <%=  @post.created_at.strftime("%b %d, %Y") %></p>
+
+        <% if @post.picture.present? %>
+        <%= link_to image_tag(@post.picture,  
+      :height => 450, :crop => :fit)%>
+        <% end %>
+        
+    <%= @post.content %>
+      <% if user_signed_in? && current_user == @post.user %>
+        <p><small><%= link_to "Edit", edit_post_path(@post) %> </small></p>
+      <% end %>
+
+    <%= render partial: "comments/form", locals: { commentable: @post } %>
+    <%= render partial: "comments/comments", locals: { comments: @comments } %>
+        
+    <div class="mt-5">
+        <%= link_to "<< Back to all Family Ties posts", posts_path %>
+    </div>
+  </div>
+</div>

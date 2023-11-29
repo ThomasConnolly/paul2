@@ -1,0 +1,13 @@
+<%= simple_form_for @vestry_minute do |f| %>
+
+  <p>Date of the meeting:
+    <%= f.date_field :date, data: { controller: "datepicker" } %>
+  <div class="my-3">
+    <p><strong>DRAFT</strong>
+    <%= f.input_field :draft, as: :boolean %></p>
+    <%= f.rich_text_area :body %>
+  </div>
+  <%= f.submit "Submit" , class: "btn btn-primary" %>
+  </p>
+<% end %>
+

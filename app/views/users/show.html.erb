@@ -1,0 +1,9 @@
+<div class="col-md-4 offset-md-4">
+  <h3><%= @user.username %> &nbsp; <%= @user.email %></h3>
+  <% if @user.avatar.attached? %>
+    <%= cl_image_tag(@user.avatar.key, width: 300, class: "center-image" ) %>
+  <% else %>
+    <h5>Upload a profile picture</h5>
+</div>
+  <%= render 'form' %>
+  <% end %>

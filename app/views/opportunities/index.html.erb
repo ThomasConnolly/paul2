@@ -1,0 +1,68 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-8 main-body pe-5">
+    <% if user_signed_in? && current_user.roles.include?("admin")%>
+      <%= link_to "Add a ministry", new_opportunity_path%>
+    <% end %>
+  <h1>There's a place for you at St. Paul's</h1>
+    <% @opportunities.each do |opportunity| %>
+      <h2><%= opportunity.ministry %></h2>
+      <p><strong>Who </strong>&nbsp;<%= opportunity.who %></p>
+      <p><strong>What </strong>&nbsp;<%= opportunity.what %></p>
+      <p><strong>When </strong>&nbsp;<%= opportunity.when %></p>
+      <p><strong>Where </strong>&nbsp;<%= opportunity.where %></p>
+      <p><strong>Contact person*</strong>&nbsp;<%= opportunity.user.username %>, <span class="email"><%= opportunity.user.email %></span></p> 
+  
+    <% if user_signed_in? && current_user.roles.include?("admin") %>
+      <p><small> <%= link_to "Edit" , edit_opportunity_path(opportunity[:id]) %> | <%= link_to 'Destroy' , opportunity, data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %></small></p>
+      <hr>
+    <% end %>
+  <% end %>
+
+  <p><strong>* Actually, you could speak with anyone here to get involved in a ministry to which you've been called.</strong></p>
+
+  </div>
+
+  <div class="col-md-4 px-4", style="background-color: #e2e2e2;">
+    <h3>This list is incomplete!</h3>
+      <p>There are many ways to be involved at Saint Paul's. Your participation in your church makes for a healthier and
+        happier congregation.</p>
+      <p>So don't be shy. Just about anyone you encounter here will steer you to a ministry fit for you.</p>
+      <p><strong>Is your ministry missing from this list? </strong> Give your webmaster a shout. Better yet, make that an email to 
+        tom.connolly@comcast.net.</p>
+  <h2 class="mt-3">Things we do at St. Paul's</h2>
+  <p>These short clips show various activities our church members 
+  are engaged in, and how you can participate more fully in the life of St. Paul's.</p>
+  <p><small>(Once the video is opened, click the box on lower right to see it in full screen mode.)</small></p>
+
+   
+   <iframe width="95%" 
+     src="https://www.youtube.com/embed/yvL6lH5zTIE" title="YouTube video player" 
+     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+     picture-in-picture;" allowfullscreen></iframe>
+
+  <iframe width="95%" 
+    src="https://www.youtube.com/embed/4wwiaR8oWX0" title="YouTube video player" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture;" allowfullscreen></iframe>
+
+   <iframe width="95%" 
+     src="https://www.youtube.com/embed/0v1h2OcSW6M" title="YouTube video player" 
+     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+     picture-in-picture;" allowfullscreen></iframe>
+
+ <iframe  width="95%"
+     src="https://youtube.com/embed/eZApGKY55iU" title="YouTube video player" 
+     frameborder="0" title="video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+     gyroscope; picture-in-picture" 
+     allowfullscreen></iframe> 
+  
+    <iframe  width="95%"
+    src="https://www.youtube.com/embed/gc7IrllDDmo" title="YouTube video player" 
+     frameborder="0" title="video" allow="accelerometer; autoplay; clipboard-write; 
+     encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+     
+    
+  </div>
+</div>
+</div>

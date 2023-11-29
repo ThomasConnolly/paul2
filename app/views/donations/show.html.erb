@@ -1,0 +1,14 @@
+<h1>
+  <%= @donation.user.username %> is donating <%= formatted_amount @donation.amount %>
+</h1>
+<div class="text-center my-5" max-width="500px">
+  <p>If this is correct, select the "Next" button to enter payment details. If not, "Edit or delete."</p>
+  <%= button_to "Next" , checkout_donations_create_path, method: :post, params: { id: @donation.id }, data: {
+    turbo: 'false' }, class: "btn btn-success btn-lg" , id: "checkout-button" %>
+</div>
+
+<% if current_user==@donation.user %>
+  <%= link_to 'Edit' , edit_donation_path(@donation) %> |
+  <%= link_to 'Delete this donation' , donation_path(@donation), data: { turbo_confirm: "Are you sure?" } 
+          vnote %>
+<% end %>

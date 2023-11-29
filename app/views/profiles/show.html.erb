@@ -1,0 +1,29 @@
+<div class="col-md-4 offset-md-4 col-sm-8 offset-sm-2 text-center">
+  <h2><%= @profile.user.username %></h2>
+  <% if @profile.user.avatar.attached? %>
+    <%= image_tag @profile.user.avatar, class: "mx-auto d-block" , width: "100%" , height: "auto" %>
+  <% end %>
+  <% if current_user==@profile.user %>
+    <p><%= link_to 'Add or change your profile picture' , edit_user_path(current_user) %>
+    <%= link_to ' | Edit your profile' , edit_profile_path(@profile) %> |
+    <%= link_to 'Delete' , profile_path(@profile), data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %></p>
+  <% end %>
+</div>
+<div class="col-md-8 offset-md-2">
+ <h4>Important locations</h4>
+  <p><%= @profile.cities %></p>
+  <h4>Growing up</h4>
+  <p><%= @profile.background %></p>
+  <h4>Building a career</h4>
+  <p> <%= @profile.career %></p>
+  <h4>Family matters</h4>
+  <p> <%= @profile.family %></p>
+  <h4>Hobbies and other activities</h4>
+  <p> <%= @profile.lifestyle %></p>
+  <h4>Life in the world</h4>
+  <p> <%= @profile.civic %></p>
+  <h4>The Family of God</h4>
+  <p><%= @profile.church %></p>
+
+  <%= link_to "<< Back to the Sharing page" , posts_path %>
+</div>

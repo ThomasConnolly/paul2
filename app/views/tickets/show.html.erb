@@ -1,0 +1,11 @@
+<div class="mt-5"></div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Purchase tickets for <%= @event.title %></h1>
+        <p><%= @event.date.strftime('%B %e, %Y') %>, <%= @event.time %></p>
+    <div class="mt30"></div>
+    <h3>You are buying <%= pluralize(@ticket.quantity, "ticket") %> for
+      <%= number_to_currency @ticket.amount*0.01 %></h3>
+    <div class="mt-3"></div>
+
+<%= button_to "Checkout", checkout_tickets_create_url, method: "post", data: { turbo: 'false' }, params: {id: @ticket.id}, id: "checkout-button", class: "btn btn-success btn-lg" %>

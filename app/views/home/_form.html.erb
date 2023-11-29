@@ -1,0 +1,8 @@
+<%= simple_form_with(model: @link) do |f| %>
+  <%=f.select :event, [["bulletin", 1], ["coffee-hour", 2] ["vestry_meeting", 3], ["evening_bible", 4], ["wine-time", 5]]
+    %>
+    <%=f.text_field :title %>
+      <%=f.text_field :time %>
+        <%= f.date_field :date, data: { controller: "datepicker" } %>
+          <%=f.url_field :url %>
+          
