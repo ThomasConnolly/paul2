@@ -1,0 +1,13 @@
+:root {
+  --sp-color: #630e08;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--sp-color);
+}
+
+.no-underline {
+  text-decoration: none;
+}

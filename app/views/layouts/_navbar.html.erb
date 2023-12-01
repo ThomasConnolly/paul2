@@ -10,17 +10,17 @@
         <%= link_to "Sign in or register" , new_user_session_path, class: "text-white" %>
             </h6></span>
       <% end %>
-
     </div><!--  navbar brand & login -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+   
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item active">
-          <%= link_to "Home" , root_path, class: "text-white" %>
+        <li class="nav-link">
+          <%= link_to "Home" , root_path, class: "text-white no-underline" %>
         </li>
 
         <li class="nav-item dropdown">

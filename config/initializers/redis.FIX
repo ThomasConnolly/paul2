@@ -1,0 +1,11 @@
+require "redis"
+
+module RedisConnection
+  extend self
+
+  def connection
+    if ENV["REDIS_URL"]
+      @connection ||= Redis.new(url: ENV["REDIS_URL"])
+    end
+  end
+end

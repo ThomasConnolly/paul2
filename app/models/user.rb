@@ -31,9 +31,9 @@
 
 class User < ApplicationRecord
   validates :first_name, presence: true
-  validates :first_name, format: { with: /[a-zA-Z]/ }
+  validates :first_name, format: { with: /[a-zA-Z]+/ }
   validates :last_name, presence: true
-  validates :last_name, format: { with: /[a-zA-Z]/ }
+  validates :last_name, format: { with: /[a-zA-Z]+/ }
   before_save :set_username
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :roles, presence: true
@@ -42,7 +42,6 @@ class User < ApplicationRecord
   after_save :maybe_add_stripe_id
   after_destroy :cancel_stripe_customer
   has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_one  :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
@@ -53,29 +52,31 @@ class User < ApplicationRecord
   has_many :vnotes, dependent: :destroy
   has_many :agendas
   has_one_attached :avatar, dependent: :destroy
-  validates :avatar, content_type: %i[png jpg]
+  validates :avatar, content_type: %i[png jpg jpeg gif] 
   has_one :pledge, dependent: :destroy
   has_many :donations, dependent: :destroy
 
   ROLES = %w[member vestry communicator admin].freeze
 
-  def set_default_role
-    self.roles ||= ['member']
-  end
-
   def add_role(role)
-    self.roles << role unless has_role?(role)
+    self.roles << role.to_s unless has_role?(role)
   end
 
   def remove_role(role)
-    self.roles.delete(role) if has_role?(role)
+    self.roles.delete(role.to_s) if has_role?(role)
   end
 
   def role?(role)
     return false if self.roles.nil?
 
-    self.roles.include?(role)
+    self.roles.include?(role.to_s)
   end
+
+  def set_default_role
+    self.roles ||= ['member']
+  end
+
+  
 
   # honey used to prevent bots-filled forms from being saved to db
   validates :honey, absence: true
@@ -93,7 +94,7 @@ class User < ApplicationRecord
   def maybe_add_stripe_id
     return if stripe_id.present?
 
-    customer = Stripe::Customer.create(email:)
+    customer = Stripe::Customer.create(email: email)
     update(stripe_id: customer.id)
   end
 
