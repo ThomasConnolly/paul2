@@ -49,7 +49,7 @@ gem 'simple_form'
 gem 'solargraph'
 gem "stimulus-rails"
 gem 'stripe'
-gem "turbo-rails"
+# gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 
