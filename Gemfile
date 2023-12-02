@@ -38,12 +38,11 @@ gem 'pundit'
 gem 'rack'  
 gem 'rack-attack'
 gem 'rack-cors'
-
 gem "rails-i18n"
 gem 'railties'
-# gem "redis", ">= 4.0.1"
-# gem 'redis-namespace'
-# gem 'redis-rails'
+gem "redis", ">= 4.0.1"
+gem 'redis-namespace'
+Sgem 'redis-rails'
 gem 'ruby-vips'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
