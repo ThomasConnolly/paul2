@@ -42,7 +42,7 @@ gem "rails-i18n"
 gem 'railties'
 gem "redis", ">= 4.0.1"
 gem 'redis-namespace'
-Sgem 'redis-rails'
+gem 'redis-rails'
 gem 'ruby-vips'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
