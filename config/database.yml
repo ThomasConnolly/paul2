@@ -21,7 +21,7 @@ default: &default
 
 development:
   <<: *default
-  database: paul2_development
+  database: paul_development
   username: postgres_user
   password: tommycon
   port: 5432
@@ -30,7 +30,7 @@ development:
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: paul2
+  #username: paul
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -58,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: paul2_test
+  database: paul_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,7 +80,9 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-  <<: *default
+
+  production:
   adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV['DATABASE_URL'] %>

@@ -18,7 +18,7 @@ require 'csv'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Paul2
+module Paul
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
