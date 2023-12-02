@@ -521,6 +521,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actioncable
   actionmailer
   active_model_serializers
   active_storage_validations
@@ -576,7 +577,7 @@ DEPENDENCIES
   rack
   rack-attack
   rack-cors
-  rails (~> 7.1.2)
+  rails
   rails-i18n
   railties
   rspec-rails
@@ -590,6 +591,7 @@ DEPENDENCIES
   solargraph
   stimulus-rails
   stripe
+  turbo-rails
   tzinfo-data
   web-console
 

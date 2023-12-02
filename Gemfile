@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 ruby "3.2.2"
 
+gem 'rails'
+gem 'actioncable'
 gem 'actionmailer'
 gem 'active_model_serializers'
 gem 'activerecord-import'
@@ -36,7 +38,7 @@ gem 'pundit'
 gem 'rack'  
 gem 'rack-attack'
 gem 'rack-cors'
-gem "rails", "~> 7.1.2"
+
 gem "rails-i18n"
 gem 'railties'
 # gem "redis", ">= 4.0.1"
@@ -49,7 +51,7 @@ gem 'simple_form'
 gem 'solargraph'
 gem "stimulus-rails"
 gem 'stripe'
-# gem "turbo-rails"
+gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 
