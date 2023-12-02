@@ -393,8 +393,13 @@ GEM
     rbs (2.8.4)
     rdoc (6.6.0)
       psych (>= 4.0.0)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
     redis-client (0.18.0)
       connection_pool
+    redis-namespace (1.11.0)
+      redis (>= 4)
+    redis-rails (0.0.0)
     regexp_parser (2.8.2)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -580,6 +585,9 @@ DEPENDENCIES
   rails
   rails-i18n
   railties
+  redis (>= 4.0.1)
+  redis-namespace
+  redis-rails
   rspec-rails
   rubocop
   rubocop-rails
