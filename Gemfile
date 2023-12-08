@@ -39,9 +39,7 @@ gem 'rack-cors'
 gem "rails", "~> 7.1.2"
 gem "rails-i18n"
 gem 'railties'
-# gem "redis", ">= 4.0.1"
-# gem 'redis-namespace'
-# gem 'redis-rails'
+gem "redis", ">= 4.0.1"
 gem 'ruby-vips'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
